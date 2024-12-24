@@ -1,0 +1,17 @@
+---
+foo: bar
+bar: foo
+array:
+  - 34
+  - 345
+  - dmakd
+
+array2:
+  inarray1:
+    - 456
+    - name: Sergio
+    - group: guest
+  inarray2:
+    - 123
+    - name: Maxim
+    - group: root 
