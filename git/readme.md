@@ -5,4 +5,12 @@ git reset --hard HEAD~ # удаляем коммит и изменения
 
 2. Как удалить ветку в локальном репозитории
 
-git branch -D name 
+git branch -D name
+
+3. Как создать новую ветку
+
+git branch -b name
+
+4. Как удалить изменения в файлах из индекса
+
+git restore filename
