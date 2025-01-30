@@ -22,3 +22,57 @@
 1) Runtime контейнеров: Docker, Containerd(по умолчанию), CRI-O  
 2) kubelet - основной компонент на каждой рабочей ноде кластера. Управляет жизненным циклом локально работающего контейнера. Рапортует apiserver об изменениях.
 3) kube-proxy - отвечает за сетевое взаимодействие контейнеров. Конфигурирует правила iptables.
+
+## Абстракции Кубернетиса
+
+1) pod - минимальная единица запуска. Состоит из дного или нескольких контейнеров и работает с ними как с единым целым. Контейнеры с поде имееют общий сетевой неймспейс.
+Нет пода - нет контейнера. 
+
+Минимальный конфиг пода: 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+
+2) labels - произвольная пара ключ:значение, добавляемая к ресурсу для дальнейшей выборки по определенным правилам, которые назывются селекторами. 
+Под может иметь несколько labels. Labels обычно прикрепляются к ресурсам в момент создания, но могут быть добавлены и потом. Спецификация пода с лейблами.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    environment: prod
+    app: nginx
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+
+3) ReplicaSet - обеспечивает поддержание постоянной работы подов, гарантирует что поды всегда запущены, в случае падения ноды создаст новые реплики подов на других нодах,
+обеспечивает горизонтальное масштабироввание подов. Спецификация ReplicaSet:
+
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    cluster: prod
+spec:
+  replicas: 3
+  selector:
+    matchlabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx 
