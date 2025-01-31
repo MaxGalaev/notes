@@ -10,6 +10,9 @@ who
 whoami
 id $(whoami)
 
+Последние входы в систему
+last
+
 Создание и удаление нового пользователя
 adduser alex
 deluser alex
