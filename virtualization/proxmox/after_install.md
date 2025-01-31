@@ -1,18 +1,18 @@
-1. Настройка репозиториев для Proxmox 8 и выше:
+## Настройка репозиториев для Proxmox 8 и выше:
 
-$ sudo nano /etc/apt/sources.list.d/pve-enterprise.list
+sudo nano /etc/apt/sources.list.d/pve-enterprise.list
 
 #deb https://enterprise.proxmox.com/debian/pve bookworm enterprise
 deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
 deb http://security.debian.org/debian-security bookworm-security main contrib
 
-$ sudo nano /etc/apt/sources.list.d/ceph.list
+sudo nano /etc/apt/sources.list.d/ceph.list
 
-#For Ceph Quincy
+For Ceph Quincy
      
 deb http://download.proxmox.com/debian/ceph-reef bookworm no-subscription
 
-2. Добавление токена для Ansible
+## Добавление токена для Ansible
 
 Галочку Privilege Separation нужно убрать
 
