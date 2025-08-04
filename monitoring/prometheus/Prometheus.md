@@ -5,7 +5,7 @@
 - `blackbox_exporter` - проверка доступности (ping, http, tcp)
 - `postgres_exporter` - состояние базы postgresql
 - `nginx_exporter` - метрики сервера nginx 
-- `redis_exporter` - меткри редиса
+- `redis_exporter` - метрики редиса
 
 #### Модель данных Prometheus
 
