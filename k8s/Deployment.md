@@ -1,11 +1,12 @@
-В основном для разворачивания приложений используюется такая сущность как Deployment, которая в себя включает ReplicaSet и стратегию развертывания. 
-
+В основном для разворачивания `stateless` приложений используюется такая сущность как Deployment, которая в себя включает `ReplicaSet` и стратегию развертывания. 
+Ссылка на [API](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/deployment-v1/)
+### Манифест
 Пример:
 ```yaml
 apiVersion: apps/v1
 kind: Deployment                                          # 1
 metadata:
-  name: my-nginx
+  name: my-nginx # Имя деплоймента
 spec:
   replicas: 3                                             # 2
   minReadySeconds: 15
