@@ -25,8 +25,11 @@ spec:
 
 `Service` бывают нескольких типов:
 - `ClusterIP` - используется по умолчанию
+- `NodePort`
+- `LoadBalancer`
+- `ExternalName`
 
-`Service` не дает доступ к вашему приложению снаружи кластера. Для проверки `Service` можно настроить `port-forward`, он используется только для тестов.
+`Service` типа `ClusterIP` не дает доступ к вашему приложению снаружи кластера. Для проверки `Service` можно настроить `port-forward`, он используется только для тестов.
 ```shell
 kubectl -n work port-forward svc/my-nginx-service 8080:80
 ```
